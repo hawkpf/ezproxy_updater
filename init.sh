@@ -22,9 +22,9 @@ fi
 sed -i '/^$/N;/^\n$/D' $original_config
 
 #build a list of stanzas from the current config file.
-grep -P "^(?:U(?:RL)?\ )http(?:s)?:\/\/((?:www)?.*\.(?:com|org|edu|net)?)" $original_config | grep -ril  "$(awk '{print $2}')" $stanza_dir | cut -d'/' -f 3 | sort -uo $extract
+grep -P "^(?:U(?:RL)?\ )http(?:s)?:\/\/((?:www)?.*\.(?:.*)?)" $original_config | grep -ril  "$(awk '{print $2}')" $stanza_dir | cut -d'/' -f 3 | sort -uo $extract
 
-grep -P "^(?:U(?:RL)?\ )http(?:s)?:\/\/((?:www)?.*\.(?:com|org|edu|net)?)" $original_config > $original_stanzas
+grep -P "^(?:U(?:RL)?\ )http(?:s)?:\/\/((?:www)?.*\.(?:.*)?)" $original_config > $original_stanzas
 #remove URL and http(s)://
 sed -i -E 's/U(RL)? http(s)?:\/\///g' $original_stanzas
 #remove first instance of a slash and anything after then sort
@@ -57,7 +57,7 @@ ls oclc-ezproxy-database-stanzas/stanzas > $stanza_list
 cat /dev/null > $stanzas_csv
 while IFS= read -r -a array;
 do
-  a=$(grep -P "^(?:U(?:RL)?\ )http(?:s)?:\/\/((?:www)?.*\.(?:com|org|edu|net)?)" oclc-ezproxy-database-stanzas/stanzas/$array/stanza.txt  | sed -E 's/U(RL)? http(s)?:\/\///g' | sed 's|/.*||')
+  a=$(grep -P "^(?:U(?:RL)?\ )http(?:s)?:\/\/((?:www)?.*\.(?:.*)?)" oclc-ezproxy-database-stanzas/stanzas/$array/stanza.txt  | sed -E 's/U(RL)? http(s)?:\/\///g' | sed 's|/.*||')
 
   echo -e "FALSE,"$array","$a >> $stanzas_csv
 done < $stanza_list
