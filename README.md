@@ -9,7 +9,7 @@ Initial set up:
 
 2) Copy custom config settings from the upper most poriton of the original_config.txt file and insert it into header.txt, this would include your server settings, IncludeIP, ExcludeIP, NeverProxy and other configurations for EZProxy.  You can also add stanzas from OCLC that you needed to modify because it wasn't working properly. EZProxy will read this record first because it's added to the top of the config file even though a second entry may appear later in your config file.
 
-3) Run init.sh
+3) Run init.sh with /bin/bash init.sh
 
 init.sh creates the following files:
 
@@ -42,11 +42,11 @@ init.sh creates the following files:
 
 9) Share with the people that will edit the file
 
-10) Run doWork.sh once
+10) Run doWork.sh once with /bin/bash doWork.sh
 
 11) Inspect config.txt file, once you're confidant that the new config.txt file is correct make a backup of your original config.txt file in your ezproxy directory then edit doWork.sh and change production to "true".  Next edit the ezproxy_full_path variable and add the full path to your ezproxy directory such as /opt/ezproxy
 
-12) Set up a cronjob to run doWork.sh
+12) Set up a cronjob to run doWork.sh with /bin/bash doWork.sh
 
 
 doWork.sh creates the following files:
