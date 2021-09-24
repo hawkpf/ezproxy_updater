@@ -44,7 +44,7 @@ config.txt                   #final config file assembled from header.txt, custo
 
 11) Inspect config.txt file, once you're confidant that the new config.txt file is correct make a backup of your original config.txt file in your ezproxy directory then edit doWork.sh and change production to "true".  Next edit the ezproxy_full_path variable and add the full path to your ezproxy directory such as /opt/ezproxy
 
-12)Set up a cronjob to run doWork.sh
+12) Set up a cronjob to run doWork.sh
 
 
 doWork.sh creates the following files:
