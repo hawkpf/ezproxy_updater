@@ -1,5 +1,7 @@
 # ezproxy_updater
-Using bash to update ezproxy stanzas from OCLC
+Using bash to update ezproxy stanzas from OCLC and Kent State
+
+Credit to Joe Corall at Kent State University for his OCLC Stanza repository at https://github.com/kent-state-university-libraries/oclc-ezproxy-database-stanzas.git
 
 Initial set up:
 
