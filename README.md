@@ -12,12 +12,19 @@ Initial set up:
 init.sh creates the following files:
 
 config_stanza_extract.txt    #list of stanzas from original_config.txt file that match OCLCs stanzas
+
 subscribed_stanza.txt        #list of stanzas that are subscribed and registered in OCLCs stanzas
-stanzas.csv                  #csv file that is exported to google drive to control subscriptions and trigger rebuilds                              of config.txt
+
+stanzas.csv                  #csv file that is exported to google drive to control subscriptions and trigger rebuilds of config.txt
+
 foldernames.txt              #extract the stanzas names from git repo
+
 original_stanzas.txt         #extract all stanza urls from original_config
+
 custom_stanzas_header.txt    #extract full stanza blocks of customly written stanzas from original_stanzas
+
 custom_stanzas.txt           #all of the urls of customly written stanzas extracted from original_stanzas
+
 config.txt                   #final config file assembled from header.txt, custom_stanzas_header.txt and stanzas.csv
 
 
@@ -43,17 +50,24 @@ config.txt                   #final config file assembled from header.txt, custo
 doWork.sh creates the following files:
 
 old_google.csv                #copy of google sheets .csv file to compare changes
+
 current_google.csv            #most recent version of the google sheets .csv file
+
 backups directory             #backup directory to save config files with date timestamp
 
 
 #Google sheets may require a auth token to properly function in the future, here are some starter steps.
 
 https://console.cloud.google.com/
+
 create a new project
+
 https://console.cloud.google.com/apis/library/sheets.googleapis.com
+
 Enable Goolge Sheets API
+
 https://console.cloud.google.com/iam-admin/serviceaccounts
+
 Select the project that was created
 
 todo:
