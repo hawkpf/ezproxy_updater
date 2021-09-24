@@ -1,0 +1,63 @@
+##  For more information on this file, see:
+##          http://www.oclc.org/support/documentation/ezproxy/cfg/
+##                                   AND
+##          http://www.oclc.org/support/documentation/ezproxy/db/
+
+##  In this file, lines starting with # are comments.  The lines starting
+##  with ##  are meant solely as comments, whereas the lines starting with
+##  only # are followed by example entries.
+
+##  PLEASE NOTE: IF YOU CHANGE THIS FILE, you must restart EZproxy to make
+##  those changes take effect. == see http://www.oclc.org/support/documentation/ezproxy/restart.htm
+
+# ****************************EZproxy options *****************************************
+
+## After running 'EZproxy -c' to test connectivity as instructed in the install guides
+## (http://www.oclc.org/us/en/support/documentation/ezproxy/download/),
+##  If necessary, Name your EZproxy server
+## == http://www.oclc.org/support/documentation/ezproxy/cfg/name/
+
+# Name My.ezproxy.server
+
+##  EZproxy must be set to Proxy-by-port?or to Proxy-by-hostname:
+##  see http://www.oclc.org/support/documentation/ezproxy/portvshostname.htm
+##                             AND
+##  http://www.oclc.org/support/documentation/ezproxy/cfg/proxybyho
+#
+#
+Name
+Option ForceHTTPSLogin
+
+##  By default, EZproxy listens on port 2048. You can specify a different port here
+
+LoginPort 80
+
+##  SSL == see: http://www.oclc.org/support/documentation/ezproxy/cfg/ssl/
+##  If using Proxy by HostName you must use a wildcard SSL certificate
+##  Please review http://www.oclc.org/support/documentation/ezproxy/cfg/ssl/certopts.htm before implementing SSL
+
+LoginPortSSL 443
+
+##  Connection limits. == see: http://www.oclc.org/support/documentation/ezproxy/cfg/limits.htm
+
+ExcludeIP
+IncludeIP
+Audit
+AuditPurge
+MaxVirtualHosts
+IntruderIPAttempts -interval= -expires=
+IntruderUserAttempts -interval= -expires=
+UsageLimit -enforce -expires= -interval= -MB= -transfers= Global
+
+##  Logging == see: http://www.oclc.org/support/documentation/ezproxy/cfg/logformat/
+##                                            AND
+##                  http://www.oclc.org/support/documentation/ezproxy/cfg/logfile/
+
+LogFormat %h %l %u %t "%r" %s %b
+LogFile -strftime ezp%Y%m.log
+
+NeverProxy
+
+######################################
+#      Broken and fixed stanzas      #
+######################################
