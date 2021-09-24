@@ -2,6 +2,7 @@
 Using bash to update ezproxy stanzas from OCLC
 
 Initial set up:
+
 1)Copy ezproxy's config.txt to the working directory as original_config.txt
 
 2)Copy custom config settings from the upper most poriton of the original_config.txt file and insert it into header.txt, this would include your server settings, IncludeIP, ExcludeIP, NeverProxy and other configurations for EZProxy.  You can also add stanzas from OCLC that you needed to modify because it wasn't working properly which means EZProxy will read this record first even though it will appear later in your config file.
