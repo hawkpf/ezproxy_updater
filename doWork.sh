@@ -29,20 +29,21 @@ check_hash() {
   #echo $original_sha " : " $new_sha
   if [[ "$original_sha" != "$new_sha" ]];
   then
-    echo "yes"
+    echo "csv changed: yes"
   else
-    echo "no"
+    echo "csv changed: no"
   fi
 }
 
 #pull in any changes made to the google csv and compare to old csv
 compare_csv() {
-  if [[ -f "$current_google_csv" && -f "$old_google_csv" ]]; then
+  if [[ -f "$current_google_csv" && -f "$old_google_csv" ]]; 
+  then
     curl -L -o $current_google_csv $google_sheet
     if [[ $(grep 'Error 400 (Bad Request)' $current_google_csv | wc -l) -eq 0 ]]; then
       local changed=$(check_hash $current_google_csv $old_google_csv)
       echo "changed is: "$changed
-      if [ $changed == "yes" ]; then
+      if [ "$changed" == "yes" ]; then
         rebuild="true"
       fi
     else
@@ -60,7 +61,10 @@ compare_csv() {
 pull_repo() {
   if [ "$(cd $stanza_dir && git pull)" != "Already up-to-date." ];
   then
+      echo "changed repo is: true"
       rebuild="true"
+  else
+      echo "changed repo is: false"
   fi
 }
 
@@ -75,7 +79,7 @@ echo "
 " >> $current_conf
 while IFS=', ' read -r -a array;
 do
-  if [ "${array[0]}" == "TRUE" ]
+  if [ "${array[0]}" == "TRUE" ];
   then
     echo -e "\n" >> $current_conf
     local array[1]=$(echo ${array[1]} | tr -d '[:space:]')
