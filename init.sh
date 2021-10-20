@@ -85,7 +85,7 @@ echo "
 " >> $final_config
 while IFS=', ' read -r -a array;
 do
-  if [ "${array[0]}" == "TRUE" ]
+  if [ "${array[0]}" == "TRUE" ];
   then
     echo -e "\n" >> $final_config
     array[1]=$(echo ${array[1]} | tr -d '[:space:]')
