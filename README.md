@@ -38,7 +38,7 @@ init.sh creates the following files:
    c) The site url in the third 
    d) A priority column for the fourth which will use numerical values starting at 1. The config file will add prioritized stanzas above the rest.
       This was necessary because certain vendors request that their stanza is above all other referenced stanzas of the same domain name.  
-      There's no need to put in a 0 in column 4, leave it blank if no prioritization is needed.
+      Everything in column 4 will be defaulted to a lower priority with a value of 10.
 
 6) Highlight the entire TRUE/FALSE column, click insert, select checkbox
 
