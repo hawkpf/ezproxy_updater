@@ -32,9 +32,13 @@ init.sh creates the following files:
 
 4) Create a new google sheet and import csv using the stanzas.csv file that was generated from init.sh
 
-5) The csv file will use 4 columns, true/false for the first, the stanza name for the second, the site url in the third and a priority column for the fourth 
-   which will use numerical values starting at 1 to make certain stanzas to added to the config file above the rest.  This was necessary because certain vendors
-   request that their stanza is above all other referenced stanzas of the same domain name.  There's no need to put in a 0 in column 4.
+5) The csv file will use 4 columns:
+   a) True/false for the first
+   b) The stanza name for the second
+   c) The site url in the third 
+   d) A priority column for the fourth which will use numerical values starting at 1. The config file will add prioritized stanzas above the rest.
+      This was necessary because certain vendors request that their stanza is above all other referenced stanzas of the same domain name.  
+      There's no need to put in a 0 in column 4, leave it blank if no prioritization is needed.
 
 6) Highlight the entire TRUE/FALSE column, click insert, select checkbox
 
