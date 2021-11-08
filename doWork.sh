@@ -77,6 +77,8 @@ echo "
 #       Automated Stanzas are as follows:        #
 ##################################################
 " >> $current_conf
+#sort the csv file by 4th column which is a priority column, then by the 2nd column which is the stanza name
+sort -t, -k4,4nr -k2,2 $current_google_csv |
 while IFS=', ' read -r -a array;
 do
   if [ "${array[0]}" == "TRUE" ];
@@ -84,8 +86,8 @@ do
     echo -e "\n" >> $current_conf
     local array[1]=$(echo ${array[1]} | tr -d '[:space:]')
     cat "${stanza_dir}/${array[1]}/stanza.txt"  >> $current_conf
-    fi
-done < $current_google_csv
+  fi
+done
 
 #trim all return lines down to a single return line in config file
 sed -i '/^$/N;/^\n$/D' $current_conf
