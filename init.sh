@@ -59,7 +59,7 @@ while IFS= read -r -a array;
 do
   a=$(grep -P "^(?:U(?:RL)?\ )http(?:s)?:\/\/((?:www)?.*\.(?:.*)?)" oclc-ezproxy-database-stanzas/stanzas/$array/stanza.txt  | sed -E 's/U(RL)? http(s)?:\/\///g' | sed 's|/.*||')
 
-  echo -e "FALSE,"$array","$a >> $stanzas_csv
+  echo -e "FALSE,"$array","$a",10" >> $stanzas_csv
 done < $stanza_list
 
 cat /dev/null > $subscribed_stanza_list
