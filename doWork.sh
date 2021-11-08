@@ -78,7 +78,7 @@ echo "
 ##################################################
 " >> $current_conf
 #sort the csv file by 4th column which is a priority column, then by the 2nd column which is the stanza name
-sort -t, -k4,4nr -k2,2 $current_google_csv |
+sort -t, -k4,4n -k2,2 $current_google_csv |
 while IFS=', ' read -r -a array;
 do
   if [ "${array[0]}" == "TRUE" ];
