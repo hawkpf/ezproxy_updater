@@ -32,21 +32,25 @@ init.sh creates the following files:
 
 4) Create a new google sheet and import csv using the stanzas.csv file that was generated from init.sh
 
-5) Highlight the entire TRUE/FALSE column, click insert, select checkbox
+5) The csv file will use 4 columns, true/false for the first, the stanza name for the second, the site url in the third and a priority column for the fourth 
+   which will use numerical values starting at 1 to make certain stanzas to added to the config file above the rest.  This was necessary because certain vendors
+   request that their stanza is above all other referenced stanzas of the same domain name.  There's no need to put in a 0 in column 4.
 
-6) Select File in upper left -> publish to the web
+6) Highlight the entire TRUE/FALSE column, click insert, select checkbox
 
-7) Select Entire Document and Comma-sperated values (.csv)
+7) Select File in upper left -> publish to the web
 
-8) Copy the link and put it in doWork.sh as google_sheet
+8) Select Entire Document and Comma-sperated values (.csv)
 
-9) Share with the people that will edit the file
+9) Copy the link and put it in doWork.sh as google_sheet
 
-10) Run doWork.sh once with /bin/bash doWork.sh
+10) Share with the people that will edit the file
 
-11) Inspect config.txt file, once you're confidant that the new config.txt file is correct make a backup of your original config.txt file in your ezproxy directory then edit doWork.sh and change production to "true".  Next edit the ezproxy_full_path variable and add the full path to your ezproxy directory such as /opt/ezproxy
+11) Run doWork.sh once with /bin/bash doWork.sh
 
-12) Set up a cronjob to run doWork.sh with /bin/bash doWork.sh
+12) Inspect config.txt file, once you're confidant that the new config.txt file is correct make a backup of your original config.txt file in your ezproxy directory then edit doWork.sh and change production to "true".  Next edit the ezproxy_full_path variable and add the full path to your ezproxy directory such as /opt/ezproxy
+
+13) Set up a cronjob to run doWork.sh with /bin/bash doWork.sh
 
 
 doWork.sh creates the following files:
