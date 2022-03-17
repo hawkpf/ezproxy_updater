@@ -85,7 +85,12 @@ do
   then
     echo -e "\n" >> $current_conf
     local array[1]=$(echo ${array[1]} | tr -d '[:space:]')
-    cat "${stanza_dir}/${array[1]}/stanza.txt"  >> $current_conf
+    if [ "${array[1]}" == "atla" ];
+    then
+      cat "${stanza_dir}/${array[1]}/asme/stanza.txt"  >> $current_conf
+    else
+      cat "${stanza_dir}/${array[1]}/stanza.txt"  >> $current_conf
+    fi
   fi
 done
 
