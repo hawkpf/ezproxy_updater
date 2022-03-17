@@ -89,8 +89,13 @@ do
   then
     echo -e "\n" >> $final_config
     array[1]=$(echo ${array[1]} | tr -d '[:space:]')
-    cat "${stanza_dir}/${array[1]}/stanza.txt"  >> $final_config
+    if [ "${array[1]}" == "atla" ];
+    then
+      cat "${stanza_dir}/${array[1]}/asme/stanza.txt"  >> $final_config
+    else
+      cat "${stanza_dir}/${array[1]}/stanza.txt"  >> $final_config
     fi
+  fi
 done < $stanzas_csv
 
 #remove multiple return lines in config file
